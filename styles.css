@@ -1,0 +1,288 @@
+@font-face {
+    font-family: Nasa;
+    src: url("fonts/nasalization-rg.otf");
+  }
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #001a35, #000);
+}
+
+.hero spline-viewer {
+    z-index: 10;
+    position: relative;
+    background: transparent;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: pulse infinite alternate;
+    z-index: 0;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.falling-star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: fall linear;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(100px, 200px); opacity: 0; }
+}
+
+
+
+/* HERO SECTION */
+.hero {
+    position: relative; 
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Default text color */
+}
+
+
+.hero-content {
+    position: absolute; /* Position content on top of spline-viewer */
+    text-align: center;
+    opacity: 1; /* Initially transparent */
+    transition: opacity 0.5s; /* Transition for fading effect */
+    font-family: Nasa;
+}
+
+.hero-content.visible {
+    opacity: 1;
+}
+
+.hero h1 {
+    font-size: 3rem; /* Adjust as per your design preference */
+    margin-bottom: 600px;
+}
+
+.hero p {
+    font-size: 1.5rem; /* Adjust as per your design preference */
+    margin-bottom: 30px;
+}
+
+.explore-btn {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    pointer-events: auto;
+    position: absolute; /* Position it relative to the hero section */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Centering adjustment */
+    z-index: 100; /* Ensure it's above other elements. */
+}
+
+.explore-btn:hover {
+    background-color: white;
+    color: #001a35; /* Dark space blue for contrast */
+}
+
+.hover-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;  /* Adjust to your desired size */
+    height: 50%; /* Adjust to your desired size */
+    top: 25%;    /* Adjust to center it vertically */
+    left: 25%;   /* Adjust to center it horizontally */
+    z-index: 15; /* Ensure it's above spline-viewer but below hero-content */
+    cursor: pointer; /* Indicate it's an interactive area */
+    background: rgba(0, 0, 0, 0.01); /* Nearly transparent to capture hover events */
+    pointer-events: none;
+}
+
+
+.rocket-section {
+    position: relative;
+    height: 100vh;
+    padding: 50px 0; /* Adjust as needed */
+    color: white; /* Text color */
+    font-family: Nasa; /* Keeping consistent with previous sections */ 
+}
+
+
+.rocket-content {
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    transform: translate(-50%, -50%); /* Center the content within the section */
+    max-width: 600px; /* Adjust as needed */
+    z-index: 10; /* Ensure it's above the rocket animation */
+}
+
+.rocket-section spline-viewer {
+    z-index: 100;
+    position: absolute;
+    height: 1000px;
+    left: 20%;
+}
+
+.rocket-content h2 {
+    font-size: 2.5rem; /* Adjust as per your design preference */
+    margin-bottom: 20px;
+}
+
+.rocket-content p {
+    font-size: 1.2rem; /* Adjust as per your design preference */
+    line-height: 1.5;
+}
+
+.rocket-content h2 strong {
+    color: #FFD700; /* A golden color for planet names, but this can be adjusted */
+}
+
+
+.earth-section {
+    position: relative;
+    height: 100vh;
+    padding: 50px 0; /* Adjust as needed */
+    color: white; /* Text color */
+    font-family: Nasa; /* Keeping consistent with previous sections */
+}
+
+.earth-section spline-viewer {
+    z-index: 100;
+    position: absolute;
+    right: 15%;
+}
+
+.earth-content {
+    position: absolute;
+    top: 50%;
+    right: 2.5%;
+    transform: translate(-50%, -50%); /* Center the content within the section */
+    max-width: 600px; /* Adjust as needed */
+    z-index: 15; /* Ensure it's above the rocket animation */
+}
+
+.earth-content h2 {
+    font-size: 2.5rem; /* Adjust as per your design preference */
+    margin-bottom: 20px;
+}
+
+.earth-content p {
+    font-size: 1.2rem; /* Adjust as per your design preference */
+    line-height: 1.5;
+}
+
+.earth-content h2 strong {
+    color: #FFD700; /* A golden color for planet names, but this can be adjusted */
+}
+
+.solar-system {
+    margin-top: 200px;
+    position: relative;
+    height: 100vh; /* This can be adjusted based on your design preference */
+    color: white; /* Default text color */
+}
+
+.solar-system spline-viewer {
+    position: absolute;
+    margin-top: 200px;
+    height: 1000px;
+}
+
+.solar-content {
+    position: absolute;
+    top: 10%; /* Adjust as needed */
+    left: 50%; /* Center the div horizontally */
+    transform: translateX(-50%); /* Ensure the centering is precise */
+    max-width: 600px /* Adjust as needed */
+    z-index: 20; /* Ensure it's above the spline-viewer */
+    font-family: Nasa; /* Keeping in line with the theme */
+}
+
+.solar-content h2 {
+    font-size: 2.5rem;
+}
+
+.solar-content h1 {
+    font-size: 1.2rem;
+}
+
+.solar-content p {
+    font-size: 1.2rem; 
+    line-height: 1.5; /* Improved readability */
+    margin-bottom: 100px;
+}
+
+
+
+.solar-content h2 strong {
+    color: #FFD700; /* A golden color for planet names, but this can be adjusted */
+}
+
+
+.black-hole {
+    margin-top: 300px;
+    position: relative;
+    height: 100vh;
+    padding: 50px 0; /* Adjust as needed */
+    color: white; /* Text color */
+    font-family: Nasa; /* Keeping consistent with previous sections */
+}
+
+.black-hole spline-viewer {
+    z-index: 100;
+    position: absolute;
+    left: 20%;
+}
+
+.black-hole-content {
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    transform: translate(-50%, -50%); /* Center the content within the section */
+    max-width: 600px; /* Adjust as needed */
+    z-index: 10; /* Ensure it's above the rocket animation */
+}
+
+.black-hole-content h2 {
+    font-size: 2.5rem; /* Adjust as per your design preference */
+    margin-bottom: 20px;
+}
+
+.black-hole-content p {
+    font-size: 1.2rem; /* Adjust as per your design preference */
+    line-height: 1.5;
+}
+
+.black-hole-content h2 strong {
+    color: #FFD700; /* A golden color for planet names, but this can be adjusted */
+}
+
+
+.end-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    height: 100vh;
+    padding: 50px 0; /* Adjust as needed */
+    color: white; /* Text color */
+    font-family: Nasa; /* Keeping consistent with previous sections */ 
+    max-width: 600px;
+    line-height: 1.5;
+}
